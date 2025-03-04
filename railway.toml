@@ -1,0 +1,24 @@
+[[buildpacks]]
+name = "heroku/google-chrome"
+
+[[buildpacks]]
+name = "heroku/chromedriver"
+
+[build]
+builder = "heroku/buildpacks:20"
+
+[deploy]
+startCommand = "python app.py"
+
+[[services]]
+internal_port = 5000
+protocol = "tcp"
+
+[services.concurrency]
+type = "connections"
+hard_limit = 25
+soft_limit = 20
+
+[env]
+PORT = "5000"
+PYTHON_VERSION = "3.9.16"
