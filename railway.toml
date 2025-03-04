@@ -19,6 +19,14 @@ type = "connections"
 hard_limit = 25
 soft_limit = 20
 
+[[services]]
+protocol = "tcp"
+internal_port = 5000
+port = 5000
+force_https = true
+
 [env]
 PORT = "5000"
 PYTHON_VERSION = "3.9.16"
+CHROME_BIN = "/usr/bin/google-chrome-stable"
+CHROMEDRIVER_PATH = "/usr/local/bin/chromedriver"
