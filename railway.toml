@@ -11,19 +11,15 @@ builder = "heroku/buildpacks:20"
 startCommand = "python app.py"
 
 [[services]]
-internal_port = 5000
 protocol = "tcp"
+internal_port = 5000
+port = 5000
+force_https = true
 
 [services.concurrency]
 type = "connections"
 hard_limit = 25
 soft_limit = 20
-
-[[services]]
-protocol = "tcp"
-internal_port = 5000
-port = 5000
-force_https = true
 
 [env]
 PORT = "5000"
